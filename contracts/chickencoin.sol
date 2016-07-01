@@ -34,7 +34,7 @@ contract ChickenCoin is ERC20Base(0) {
         var eth = ratio * this.balance / UNIT;
         var fee = eth / 200; // 0.5%
         var granted_eth = eth - fee;
-        _balances[msg.sender] -= granted_eth;
+        _balances[msg.sender] -= quantity;
         _supply -= granted_eth;
         if( !msg.sender.call.value(granted_eth)() ) {
             throw;
